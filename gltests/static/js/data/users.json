@@ -1,0 +1,13 @@
+{
+    success: true,
+    data: { 
+    	firstName: 'Victor',
+    	lastName : 'Petrenko',
+    	email : 'victor.petrenko@mail.ru',
+    	lastName2: 'Petrenko',
+    	graduation: 1980,
+    	faculty: 'Applied Mathematics and Informatics',
+    	spacialty: 'Department of Applied Mathematics'    	
+    }        
+    
+}

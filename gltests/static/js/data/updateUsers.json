@@ -1,0 +1,7 @@
+{
+    success: true,
+    users: [
+        { id: 1, userName: 'Ed',password : '123',email : 'mail.ru'},
+        { id: 2, userName: 'Tommy',password : '123',email : 'mail.ru'},
+    ]
+}
