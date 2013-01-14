@@ -5,8 +5,6 @@ from django.core import serializers
 from django.utils import simplejson
 from django.core.serializers.json import DjangoJSONEncoder, DateTimeAwareJSONEncoder
 from django.http import HttpResponse
-from django.contrib.auth import  login
-from datetime import date
 from django.db.models import Q
 
 from poll.models import Poll
@@ -27,7 +25,7 @@ def login(request):
             questions = Question.objects.filter(poll = poll)
             
             for question in questions:
-                result['questions'].append({'text': question.text, })
+                result['questions'].append({'text': question.text, 'id': question.id, })
         
         data = simplejson.dumps(result, cls=DjangoJSONEncoder)
         return HttpResponse(data,mimetype="applicatipn/json")
