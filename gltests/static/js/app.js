@@ -7,7 +7,8 @@ Ext.application({
     appFolder: '/static/js/app',
     
     controllers: [
-        'Login'
+        'Login',
+        'Poll'
     ],
     
     launch: function() {        

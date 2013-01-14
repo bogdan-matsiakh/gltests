@@ -3,8 +3,7 @@ Ext.define('GL.view.Viewport', {
     
     layout: 'fit',
     items: [{
-        xtype: 'login'
-    },{
-        
+        xtype: 'content',
+        autoScroll: true
     }]
 });

@@ -1,7 +1,7 @@
 Ext.define('GL.controller.Login', {
     extend: 'Ext.app.Controller',
     
-    views: ['login.Login', 'user.List'],
+    views: ['page.Content', 'login.Login', 'user.List'],
     
     init: function() {
         this.control({
@@ -15,6 +15,13 @@ Ext.define('GL.controller.Login', {
     },
 
     onPanelRendered: function() {
+    	var content = Ext.getCmp('content'); //get 'content' view by id        
+        
+        content.removeAll();
+        content.add({
+    		xtype: 'login'
+        });
+        
         var win = Ext.create('GL.view.login.Login');
         win.show();
     },
@@ -36,15 +43,24 @@ Ext.define('GL.controller.Login', {
         }
     },
     
-    successLogin: function (p,a) {
-       console.log('success');
-       console.log(p);
-       console.log(a); 
+    successLogin: function (response, request) {
+        console.log('success');
+        var result = JSON.parse(response.responseText);
+        console.log(result);
+        
+        var content = Ext.getCmp('content'); //get 'content' view by id        
+        var win = Ext.getCmp('loginWindow');
+        win.close();
+        
+        content.removeAll();
+        content.add({
+			xtype: 'poll',
+			title: 'Hello, ' + result.name 
+        });
+        
     },
     
     failureLogin: function (p,a) {
        console.log('failure');
-       console.log(p);
-       console.log(a); 
     },
 });
