@@ -12,7 +12,7 @@ Ext.define('GL.view.login.Login',{
     initComponent: function(){
 	     this.items = [{
     	     xtype:'form',
-    	     id:'logIn',
+    	     id:'login',
              cls:'window-form',
              bodyStyle: 'padding: 17px;',
     	     defaults: {width: 190,height:25},
@@ -20,13 +20,12 @@ Ext.define('GL.view.login.Login',{
 	    		 xtype: 'label',
 		    	 text: 'Ваше імя',
 		    	 region: 'center'
-	         },{                              ///////////textfield for username
+	         },{
 				 xtype: 'textfield',
 				 name : 'username',
 				 allowBlank:false,
             	 blankText:'Введіть свіє імя',
                  emptyText:'Введіть своє імя',
-                // vtype:'email'
 	    	 }]
 	     }];
 	  							          //////////////Buttons Save and Cancel
@@ -48,6 +47,3 @@ Ext.define('GL.view.login.Login',{
 	  	 this.callParent(arguments);
 	}
 });
-
-var win = Ext.create('GL.view.login.Login');
-win.show();

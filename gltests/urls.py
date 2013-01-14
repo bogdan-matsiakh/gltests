@@ -8,6 +8,7 @@ from main import views
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'main.views.index'),
+    url(r'^login$', 'main.views.login'),
     # url(r'^gltests/', include('gltests.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

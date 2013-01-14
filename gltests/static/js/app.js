@@ -9,13 +9,9 @@ Ext.application({
     controllers: [
         'Login'
     ],
-
-    launch: function() {
-        Ext.create('Ext.container.Viewport', {
-            layout: 'fit',
-            items: [{
-                xtype: 'login'
-            }]
-        });
+    
+    launch: function() {        
+        Ext.Ajax.defaultHeaders = {'X-CSRFToken':Ext.util.Cookies.get('csrftoken')};
+            Ext.create('GL.view.Viewport');
     }
 });
