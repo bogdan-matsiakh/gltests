@@ -1,40 +1,43 @@
 .question {
-	position: relative; 
-	top:20px; 
-	left: 20px; 
+	position: relative;
+	left: 20px;
 	font: 20px bold Verdana;
 }
 
+.image {
+	width: 300px;
+}
+
 .choice {
-	position: relative; 
-	top:20px; 
-	left: 40px; 
+	position: relative;
+	top: 20px;
+	left: 40px;
 	font: 14px Verdana;
 }
 
 .choice > checkbox {
 	width: 20px;
-	height:20px;
+	height: 20px;
 }
 
 .active-button {
 	position: relative;
 	left: 0px;
 	float: left;
-	height: 30px; 
-	width: 100%; 
-	background-color: #23427C; 
-	color: #FFFFFF; 
+	height: 30px;
+	width: 100%;
+	background-color: #23427C;
+	color: #FFFFFF;
 	padding: 8px;
 }
 
 .active-button > .span {
-	font-weight: bold; 
+	font-weight: bold;
 	margin: 5px 5px 5px 0px;
-	padding: 5px 5px 5px 5px; 
+	padding: 5px 5px 5px 5px;
 	text-align: center;
 }
 
 .active-button.next {
-	
+
 }

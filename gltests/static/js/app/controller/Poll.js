@@ -29,6 +29,14 @@ Ext.define('GL.controller.Poll', {
         var ctpl = new Ext.XTemplate(
             '<tpl for=".">',
                 '<div class="question">{text}</div>',
+
+                '<tpl if="img != false">',
+                    '<tpl for="img">',
+                            '<img class="image" src={src} />',
+                        '</div>',
+                    '</tpl>',
+                    
+                '</tpl>',
                 
                 '<tpl for="choices">',
                     '<div class="choice">',
@@ -77,12 +85,12 @@ Ext.define('GL.controller.Poll', {
 				answer = checkbox.name;
 			}
 		};
-    	var right = answer == trueAnswer ? 1 : 0;
+    	say(answer == trueAnswer ? data.good : data.wrong);
     	Ext.Ajax.request({
             url : '/submit',
             method: 'POST', 
             params: {
-                right: right
+                right: answer == trueAnswer ? 1 : 0
             },            
     	})
     	id + 1 < store.data.getCount() ? this.startPoll(id + 1) : this.endPoll();

@@ -1,4 +1,4 @@
 Ext.define('GL.model.Question', {
     extend: 'Ext.data.Model',
-    fields: ['text', 'choices'],
+    fields: ['text', 'choices', 'img', 'good', 'wrong'],
 });
