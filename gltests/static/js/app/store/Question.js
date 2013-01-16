@@ -7,8 +7,8 @@ Ext.define('GL.store.Question', {
             text: 'Spencer',
             isCorrect: false
         },{
-            text: 'Spencer',
-            isCorrect: false
+            text: 'some',
+            isCorrect: true
         },{
             text: 'Spencer',
             isCorrect: false
@@ -17,7 +17,7 @@ Ext.define('GL.store.Question', {
         text: 'Ed',   
         choices: [{
             text: 'Spencer',
-            isCorrect: false
+            isCorrect: true
         },{
             text: 'Spencer',
             isCorrect: false

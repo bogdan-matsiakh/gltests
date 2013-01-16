@@ -8,6 +8,7 @@ from django.http import HttpResponse
 from django.db.models import Q
 
 from models import Question
+from main.models import Profile
 
 def get(request):
     if request.POST:
@@ -19,3 +20,35 @@ def get(request):
         return HttpResponse(data,mimetype="applicatipn/json")
     else:
         return HttpResponse('{success:false}',mimetype="application/json")
+    
+def submit(request):
+    if request.POST:
+        id = request.COOKIES.get('id')
+        right = request.POST.get('right')
+        profile = Profile.objects.get(id = id)
+        profile.correct += 1
+        profile.save()
+        
+        result = {'success':True, 'result': [],}
+        
+        profiles = Profile.objects.all()
+        
+        for profile in profiles:
+            result['result'].append({'name': profile.name, 'points': profile.correct, })
+        
+        data = simplejson.dumps(result, cls=DjangoJSONEncoder)
+        return HttpResponse(data,mimetype="applicatipn/json")
+    else:
+        result = {'success':True, 'result': [],}
+        
+        profiles = Profile.objects.all()
+        
+        for profile in profiles:
+            result['result'].append({'name': profile.name, 'points': profile.correct, })
+        
+        data = simplejson.dumps(result, cls=DjangoJSONEncoder)
+        return HttpResponse(data,mimetype="applicatipn/json")
+    
+def check_poll(request):
+    print 'changed'
+    return

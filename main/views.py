@@ -9,13 +9,20 @@ from django.db.models import Q
 
 from poll.models import Poll
 from question.models import Question
+from main.models import Profile
 
 def index(request):
     return render_to_response('index.html')
 
+def result(request):
+    return render_to_response('result.html')
+
 def login(request):
     if request.POST:
         name = request.POST.get('name')
+        profile = Profile.objects.create(name = name)
+        print 'profile'
+        print profile
         result = {'success':True,  'name': name, 'pollTitle': '', 'questions': [], }
         
         polls = Poll.objects.all()
@@ -28,6 +35,8 @@ def login(request):
                 result['questions'].append({'text': question.text, 'id': question.id, })
         
         data = simplejson.dumps(result, cls=DjangoJSONEncoder)
-        return HttpResponse(data,mimetype="applicatipn/json")
+        response = HttpResponse(data,mimetype="applicatipn/json")
+        response.set_cookie('id', profile.id)
+        return response
     else:
         return HttpResponse('{success:false}',mimetype="application/json")

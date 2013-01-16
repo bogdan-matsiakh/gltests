@@ -11,10 +11,12 @@ from choice import views
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', 'main.views.index'),
+    url(r'^result$', 'main.views.result'),
     url(r'^login$', 'main.views.login'),
     # url(r'^gltests/', include('gltests.foo.urls')),
     
     url(r'^question$', 'question.views.get'),
+    url(r'^submit$', 'question.views.submit'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

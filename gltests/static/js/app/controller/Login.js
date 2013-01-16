@@ -9,8 +9,17 @@ Ext.define('GL.controller.Login', {
                 render: this.onPanelRendered
             },
             'login button[action = login]': {
-                click: this.login
+                click: this.login,
+                
             },
+            'login textfield': {
+            	keyup: function (self, e) {
+                	var self = this;
+                	if (e.keyCode == 13) {
+                		self.login();
+                	}
+                }
+            }
         });
     },
 
@@ -47,15 +56,16 @@ Ext.define('GL.controller.Login', {
         console.log('success');
         var result = JSON.parse(response.responseText);
         var content = Ext.getCmp('content');        
-        var win = Ext.getCmp('loginWindow');
-        win.close();
+        var loginWindow = Ext.getCmp('loginWindow');
+        
+        loginWindow.close();
         
         content.removeAll();
         content.add({
-			xtype: 'poll',
-			title: 'Hello, ' + result.name 
+			xtype: 'poll'
         });
         
+		say("Привіт, " + result.name + '. Розпочнемо')
     },
     
     failureLogin: function (p,a) {

@@ -33,20 +33,62 @@ Ext.define('GL.controller.Poll', {
                 '<tpl for="choices">',
                     '<div class="choice">',
                         '<label for={text}>{text}</label>',
-                        '<input type="checkbox" name={text}/>',
+                        '<input class="answer" type="checkbox" name={text}/>',
                     '</div>',
                 '</tpl>',
             '</tpl>'
         );
         content.removeAll();
         ctpl.overwrite(content.body, data);
+        
         content.add({
             xtype: 'button',
-            text: 'Відповісти',
+	    	html:'<div class="active-button next"><span class="span"> Наступне</span></div>',
+			styleHtmlContent: true,
+			style: {
+				position: 'relative',
+				top: 200,
+				left: 200
+			},
+			padding: 2,
             handler: function () {
-                self.startPoll(id + 1);
-            }
+	            self.submitAnswer(id);
+            } 
         });
-        console.log('end')
+        content.title = 'Тест';
+    },
+    
+    submitAnswer: function (id) {
+    	var choices = document.getElementsByClassName('choice');
+    	var store = Ext.getStore('Question');
+        var data = store.data.get(id).data;
+    	var trueAnswer = '';
+    	var answer = '';
+    	var right = false;
+    	
+    	for (var i = 0; i < data.choices.length; i++) {
+			if (data.choices[i].isCorrect) {
+				trueAnswer = data.choices[i].text; 
+			}
+		};
+    	for (var i = 0; i < choices.length; i++) {
+			var checkbox = choices[i].getElementsByClassName('answer')[0];
+			if (checkbox.checked) {
+				answer = checkbox.name;
+			}
+		};
+    	var right = answer == trueAnswer ? 1 : 0;
+    	Ext.Ajax.request({
+            url : '/submit',
+            method: 'POST', 
+            params: {
+                right: right
+            },            
+    	})
+    	id + 1 < store.data.getCount() ? this.startPoll(id + 1) : this.endPoll();
+    },
+    
+    endPoll: function () {
+    	say('end poll');
     }
 });

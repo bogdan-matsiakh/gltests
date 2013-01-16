@@ -2,7 +2,6 @@ Ext.define('GL.view.login.Login',{
 	extend: 'Ext.window.Window',
 	alias: 'widget.login',
 	title: 'Увійти',
-	store: 'Registration',
 	layout: 'fit',
     resizable: false,
     modal: true,
@@ -26,24 +25,17 @@ Ext.define('GL.view.login.Login',{
 				 allowBlank:false,
             	 blankText:'Введіть свіє імя',
                  emptyText:'Введіть своє імя',
+                 enableKeyEvents: true
 	    	 }]
 	     }];
-	  							          //////////////Buttons Save and Cancel
+	  							          
 		 this.buttons = [{
-	         html:'<div style="height: 30px; width: 100%; background-color: #23427C; color: #FFFFFF; padding: 8px"> <span style="font-weight: bold; margin: 5px 5px 5px 5px; padding: 5px 5px 5px 5px; text-align: center;"> Залогуватися</span></div>',
+	         html:'<div class="active-button"><span class="span"> Вперед!</span></div>',
 	         styleHtmlContent: true,
              padding: 2,
 			 action: 'login',
 			 name: 'login'
-	   	 },{
-             text: 'Скасувати',
-             action: 'cancel',
-             name:'cancel',
-             padding: 2,
-             height:30,
-             scope: this,
-	 		 handler: this.close
-	  	 }];
+	   	 }];
 	  	 this.callParent(arguments);
 	}
 });

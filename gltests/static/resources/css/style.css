@@ -16,3 +16,25 @@
 	width: 20px;
 	height:20px;
 }
+
+.active-button {
+	position: relative;
+	left: 0px;
+	float: left;
+	height: 30px; 
+	width: 100%; 
+	background-color: #23427C; 
+	color: #FFFFFF; 
+	padding: 8px;
+}
+
+.active-button > .span {
+	font-weight: bold; 
+	margin: 5px 5px 5px 0px;
+	padding: 5px 5px 5px 5px; 
+	text-align: center;
+}
+
+.active-button.next {
+	
+}

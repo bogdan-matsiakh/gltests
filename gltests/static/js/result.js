@@ -7,13 +7,12 @@ Ext.application({
     appFolder: '/static/js/app',
     
     controllers: [
-        'Login',
-        'Poll'
+       'Result'
     ],
     
     launch: function() {        
         Ext.Ajax.defaultHeaders = {'X-CSRFToken':Ext.util.Cookies.get('csrftoken')};
-            Ext.create('GL.view.Viewport');
+            Ext.create('GL.view.ViewportResult');
     }
 });
 
