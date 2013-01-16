@@ -46,9 +46,7 @@ Ext.define('GL.controller.Login', {
     successLogin: function (response, request) {
         console.log('success');
         var result = JSON.parse(response.responseText);
-        console.log(result);
-        
-        var content = Ext.getCmp('content'); //get 'content' view by id        
+        var content = Ext.getCmp('content');        
         var win = Ext.getCmp('loginWindow');
         win.close();
         

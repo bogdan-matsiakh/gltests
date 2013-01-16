@@ -1,16 +1,32 @@
 Ext.define('GL.store.Question', {
     extend: 'Ext.data.Store',
     model: 'GL.model.Question',
-    autoLoad: false,
-    proxy: {
-      type: 'ajax',
-      actionMethods:{
-        read: 'POST'
-      },
-      url : '/question/',
-      reader: {
-        type: 'json',
-        root: 'question',
-      }
-    }
+    data : [{
+        text: 'Who is Ed?',   
+        choices: [{
+            text: 'Spencer',
+            isCorrect: false
+        },{
+            text: 'Spencer',
+            isCorrect: false
+        },{
+            text: 'Spencer',
+            isCorrect: false
+        }]
+    },{
+        text: 'Ed',   
+        choices: [{
+            text: 'Spencer',
+            isCorrect: false
+        },{
+            text: 'Spencer',
+            isCorrect: false
+        },{
+            text: 'Spencer',
+            isCorrect: false
+        },{
+            text: 'Spencer',
+            isCorrect: false
+        }]
+    }]
 });

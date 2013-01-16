@@ -1,0 +1,18 @@
+.question {
+	position: relative; 
+	top:20px; 
+	left: 20px; 
+	font: 20px bold Verdana;
+}
+
+.choice {
+	position: relative; 
+	top:20px; 
+	left: 40px; 
+	font: 14px Verdana;
+}
+
+.choice > checkbox {
+	width: 20px;
+	height:20px;
+}
