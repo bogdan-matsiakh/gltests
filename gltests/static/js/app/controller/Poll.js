@@ -32,7 +32,7 @@ Ext.define('GL.controller.Poll', {
 
                 '<tpl if="img != false">',
                     '<tpl for="img">',
-                            '<img class="image" src={src} />',
+                            '<img class="image" src={src} style="width:200px;" />',
                         '</div>',
                     '</tpl>',
                     
