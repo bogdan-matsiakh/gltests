@@ -1,18 +1,22 @@
 .question {
 	position: relative;
-	left: 20px;
-	font: 20px bold Verdana;
+	margin-left: 20px;
+	font: 2em bold Verdana;
 }
 
 .image {
 	width: 300px;
+	float: left;
+	margin: 20px;
+	border: 2px solid blue;
 }
 
 .choice {
 	position: relative;
 	top: 20px;
-	left: 40px;
+	margin-left: 40px;
 	font: 14px Verdana;
+	clear: both;
 }
 
 .choice > checkbox {
@@ -25,7 +29,6 @@
 	left: 0px;
 	float: left;
 	height: 30px;
-	width: 100%;
 	background-color: #23427C;
 	color: #FFFFFF;
 	padding: 8px;
@@ -39,5 +42,17 @@
 }
 
 .active-button.next {
+	position: fixed;
+	left: 20px;
+	right: 20px;
+	bottom: 20px;
+	height: 100px;
+	text-align: center;
+	line-height: 90px;
+	font-size: 3em;
+	width: none;
+}
 
+.label {
+	font-size: 2em;
 }

@@ -1,7 +1,7 @@
 Ext.define('GL.controller.Poll', {
     extend: 'Ext.app.Controller',
     
-    views: ['poll.Index'],
+    views: ['poll.Index', 'poll.Question'],
     models: ['Poll', 'Question', 'Choice'],
     stores: ['Question'],
     
@@ -32,15 +32,16 @@ Ext.define('GL.controller.Poll', {
 
                 '<tpl if="img != false">',
                     '<tpl for="img">',
+                        '<div>',
                             '<img class="image" src={src} />',
                         '</div>',
                     '</tpl>',
                     
                 '</tpl>',
                 
-                '<tpl for="choices">',
+                '<br/><tpl for="choices">',
                     '<div class="choice">',
-                        '<label for={text}>{text}</label>',
+                        '<label class="label" for={text}>{text}</label>',
                         '<input class="answer" type="checkbox" name={text}/>',
                     '</div>',
                 '</tpl>',
@@ -48,7 +49,6 @@ Ext.define('GL.controller.Poll', {
         );
         content.removeAll();
         ctpl.overwrite(content.body, data);
-        
         content.add({
             xtype: 'button',
 	    	html:'<div class="active-button next"><span class="span"> Наступне</span></div>',
@@ -63,6 +63,25 @@ Ext.define('GL.controller.Poll', {
 	            self.submitAnswer(id);
             } 
         });
+        content.add({
+           // xtype: 'question'
+        });
+        /*
+        var question = Ext.getCmp("question");
+        var checkboxes = question.down('checkboxgroup');
+        checkboxes.fieldLabel = data.text;
+        say(checkboxes);
+        for (var i=0; i < data.choices.length; i++) {
+            checkboxes.add({ 
+                boxLabel: data.choices[i].text, 
+                border: 30,
+                
+                name: 'rb', 
+                inputValue: '1' 
+            });
+          
+        };
+        */
         content.title = 'Тест';
     },
     

@@ -6,7 +6,7 @@ Ext.define('GL.view.poll.Index',{
     
     items: [{
     	xtype: 'button',
-    	html:'<div class="active-button"><span class="span"> Розпочати тест</span></div>',
+    	html:'<div class="active-button next"><span class="span"> Розпочати тест</span></div>',
 		styleHtmlContent: true,
 		padding: 2,
 		action: 'startPoll',
